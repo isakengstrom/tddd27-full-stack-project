@@ -5,7 +5,8 @@ A project in the course Advanced web programming (TDDD27) at Linköping universi
 Author: Isak Engström
 LiU-id: isaen688
 
-#Functional and technical specifications
+**Functional and technical specifications**
+
 I will develop a web application in form of a calendar which can be connected with goals and notes. 
 The user should be able to look at the calendar and see what they are working towards. Or look at the list of goals/notes and see when they will be working towards them. 
 It should be possible to connect users with each other, to share schedule and/or goals/notes. 
