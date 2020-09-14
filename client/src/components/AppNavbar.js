@@ -1,47 +1,29 @@
+
 import React, { Component } from 'react';
 import {
-    Collapse, 
     Navbar,
-    NavbarToggler,
-    NavbarBrand,
     Nav,
-    NavItem,
-    NavLink,
     Container
-} from 'reactstrap';
+} from 'react-bootstrap';
 
 class AppNavbar extends Component {
-    state = {
-        isOpen: false
-    }
-
-    toggle = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
-    }
-
+    
     render() {
         return(
             <div>
-                <Navbar color="dark" dark expand="sm" className="mb-5">
+                <Navbar bg="dark" variant="dark" expand="sm">
                     <Container>
-                        <NavbarBrand href="/">Coals</NavbarBrand>
-                        <NavbarToggler onClick={this.toggle} />
-                        <Collapse isOpen={this.state.isOpen} navbar>
-                            <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <NavLink href="https://www.ida.liu.se/~TDDD27/">
-                                        Course Website
-                                    </NavLink>
-                                </NavItem>
+                        <Navbar.Brand href="/">COAL</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="ml-auto">
+                                <Nav.Link href="https://www.ida.liu.se/~TDDD27/">Course Website</Nav.Link>
                             </Nav>
-                        </Collapse>
+                        </Navbar.Collapse>
                     </Container>
                 </Navbar>
             </div>
         ); 
-        
     }
 }
 
