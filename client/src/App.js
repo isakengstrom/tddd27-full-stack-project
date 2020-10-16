@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AppNavbarReactstrap from './components/AppNavbarReactstrap';
 import AppNavbar from './components/AppNavbar';
+import AppFooter from './components/AppFooter';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -10,6 +10,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<AppNavbar />
+				<AppFooter />
 			</div>
 		);
 	}
