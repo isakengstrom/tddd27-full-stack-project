@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Nav } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import styled from 'styled-components';
 
@@ -22,7 +22,7 @@ class AppFooter extends Component {
                                 <Col md={5} sm={6}>
                                     <h5>About</h5>
                                     <ul className="list-unstyled">
-                                        <li>This website is a project made in the course <a href="https://github.com/bioengstrom">Advanced Web Programming (TDDD27)</a>, at LiU.</li>
+                                        <li>This website is a project made in the course <a href="https://www.ida.liu.se/~TDDD27/">Advanced Web Programming (TDDD27)</a>, at LiU.</li>
                                     </ul>
                                 </Col> 
                             </Row>
