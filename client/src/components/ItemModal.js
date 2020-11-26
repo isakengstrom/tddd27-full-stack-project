@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  { Button, Modal, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { v4 as uuid } from 'uuid';
+//import { v4 as uuid } from 'uuid';
 
 import { addItem } from '../actions/itemActions';
 
@@ -25,7 +25,6 @@ class ItemModal extends Component {
         e.preventDefault();
 
         const newItem = {
-            id: uuid(),
             name: this.state.name,
         }
 
