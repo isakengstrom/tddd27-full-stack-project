@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import  {
-    Button,
-    Modal,
-    Form,
-} from 'react-bootstrap';
+import  { Button, Modal, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 
@@ -43,17 +39,10 @@ class ItemModal extends Component {
     render() {
         return(
             <div>
-                <Button
-                    variant="dark"
-                    style={{ marginBottom: '2rem' }}
-                    onClick={this.toggle}
-                >
+                <Button variant="dark" style={{ marginBottom: '2rem' }} onClick={this.toggle}>
                     Add Goal
                 </Button>
-                <Modal
-                    show={this.state.modal}
-                    toggle={this.toggle}
-                >
+                <Modal show={this.state.modal} toggle={this.toggle}>
                     <Modal.Header toggle={this.toggle}>
                         Add To Goals
                     </Modal.Header>
@@ -68,12 +57,7 @@ class ItemModal extends Component {
                                     placeholder="Add a goal"
                                     onChange={this.onChange}
                                 />
-                                <Button
-                                    variant="dark"
-                                    style={{ marginTop: '2rem' }}
-                                    type="submit"
-                                    block
-                                >
+                                <Button variant="dark" style={{ marginTop: '2rem' }} type="submit" block>
                                     Add Goal
                                 </Button>
                             </Form.Group>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, Button } from 'react-bootstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-//import { v4 as uuid } from 'uuid';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 

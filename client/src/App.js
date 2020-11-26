@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Container } from 'react-bootstrap';
+import { Provider } from 'react-redux';
+
 import AppNavbar from './components/AppNavbar';
 import AppFooter from './components/AppFooter';
 import GoalList from './components/GoalList';
 import ItemModal from './components/ItemModal';
-
-import { Provider } from 'react-redux';
 import store from './store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
