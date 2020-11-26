@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { Container } from 'react-bootstrap';
 import AppNavbar from './components/AppNavbar';
 import AppFooter from './components/AppFooter';
-import TempList from './components/TempList';
+import GoalList from './components/GoalList';
+import ItemModal from './components/ItemModal';
+
+import { Provider } from 'react-redux';
+import store from './store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -9,11 +14,16 @@ import './App.css';
 class App extends Component {
 	render(){
 		return (
-			<div className="App">
-				<AppNavbar />
-				<TempList />
-				<AppFooter />
-			</div>
+			<Provider store={store}>
+				<div className="App">
+					<AppNavbar />
+					<Container style={{ marginTop: '2rem'}}>
+						<ItemModal />
+						<GoalList />
+					</Container>
+					<AppFooter />
+				</div>
+			</Provider>
 		);
 	}
 }
