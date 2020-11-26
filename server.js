@@ -13,7 +13,8 @@ const app = express();
 app.use(bodyParser.json());
 
 // DB config 
-const db = require('./config/keys').mongoURI
+//const db = require('./config/keys').mongoURI
+const db = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_NAME}.qjmpb.azure.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
 
 // Connect to Mongo
 mongoose

@@ -21,7 +21,7 @@ node_modules
 .env.test
 
 # config folder
-config/
+config/*
 
 # TODO
 TODO
