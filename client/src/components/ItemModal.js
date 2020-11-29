@@ -41,8 +41,8 @@ class ItemModal extends Component {
                 <Button variant="dark" style={{ marginBottom: '2rem' }} onClick={this.toggle}>
                     Add Goal
                 </Button>
-                <Modal show={this.state.modal} toggle={this.toggle}>
-                    <Modal.Header toggle={this.toggle}>
+                <Modal show={this.state.modal} onHide={this.toggle}>
+                    <Modal.Header toggle={this.toggle} closeButton>
                         Add To Goals
                     </Modal.Header>
                     <Modal.Body>
