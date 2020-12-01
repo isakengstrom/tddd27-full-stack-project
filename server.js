@@ -1,29 +1,29 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const path = require('path');
-
-const items = require('./routes/api/items');
 
 require('dotenv').config();
 
 const app = express();
 
 //Bodyparser Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 // DB config 
-//const db = require('./config/keys').mongoURI
 const db = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_NAME}.qjmpb.azure.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
 
 // Connect to Mongo
 mongoose
-    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(db, { 
+        useNewUrlParser: true,
+        useCreateIndex: true,  
+        useUnifiedTopology: true 
+    })
     .then(() => console.log('MongoDB Connected..'))
     .catch(err => console.log(err));
 
 // Use Routes 
-app.use('/api/items', items);
+app.use('/api/items', require('./routes/api/items'));
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production'){
