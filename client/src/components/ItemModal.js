@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  { Button, Modal, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 //import { v4 as uuid } from 'uuid';
+import PropTypes from 'prop-types'; 
 
 import { addItem } from '../actions/itemActions';
 
@@ -9,6 +10,10 @@ class ItemModal extends Component {
     state = {
         modal: false,
         name: '',
+    }
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool,
     }
 
     toggle = () => {
@@ -38,9 +43,14 @@ class ItemModal extends Component {
     render() {
         return(
             <div>
-                <Button variant="dark" style={{ marginBottom: '2rem' }} onClick={this.toggle}>
+                { this.props.isAuthenticated ? 
+                    <Button variant="dark" style={{ marginBottom: '2rem' }} onClick={this.toggle}>
                     Add Goal
-                </Button>
+                    </Button>
+                    :
+                    <h4 className="mb-3 ml-4">Log in to manage goals</h4>
+                }
+                
                 <Modal show={this.state.modal} onHide={this.toggle}>
                     <Modal.Header toggle={this.toggle} closeButton>
                         Add To Goals
@@ -69,7 +79,8 @@ class ItemModal extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    item: state.item
+    item: state.item,
+    isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { addItem })(ItemModal);
