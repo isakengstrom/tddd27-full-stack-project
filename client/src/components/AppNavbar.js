@@ -1,6 +1,8 @@
-
 import React, { Component } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+
+import RegisterModal from './auth/RegisterModal';
+import Logout from './auth/Logout';
 
 class AppNavbar extends Component {
     
@@ -12,9 +14,9 @@ class AppNavbar extends Component {
                         <Navbar.Brand href="/">COAL</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="ml-auto">
-                                <Nav.Link href="https://www.ida.liu.se/~TDDD27/">Course Website</Nav.Link>
-                            </Nav>
+                            <Nav.Item className="ml-auto">
+                                <RegisterModal />
+                            </Nav.Item>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
