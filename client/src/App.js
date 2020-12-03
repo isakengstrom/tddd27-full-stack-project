@@ -22,10 +22,10 @@ class App extends Component {
 			<Provider store={store}>
 				<div className="App">
 					<AppNavbar />
-					<Container style={{ marginTop: '2rem'}}>
-						<ItemModal />
-						<GoalList />
-					</Container>
+						<Container style={{ marginTop: '2rem'}}>
+							<ItemModal />
+							<GoalList />
+						</Container>
 					<AppFooter />
 				</div>
 			</Provider>

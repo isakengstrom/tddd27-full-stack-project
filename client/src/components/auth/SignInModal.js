@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 //import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 
-import { register } from '../../actions/authActions';
+import { login } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
-class RegisterModal extends Component {
+class SignInModal extends Component {
     state = {
         modal: false,
-        name: '',
         email: '',
         password: '',
         msg: null,
@@ -19,7 +18,7 @@ class RegisterModal extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
-        register: PropTypes.func.isRequired,
+        login: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired,
     };
 
@@ -29,7 +28,7 @@ class RegisterModal extends Component {
 
         if(error !== prevProps.error) {
             // Check for register error
-            if(error.id === 'REGISTER_FAIL') {
+            if(error.id === 'LOGIN_FAIL') {
                 this.setState({ msg: error.msg.msg });
             }
             else {
@@ -61,43 +60,31 @@ class RegisterModal extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { name, email, password } = this.state;
+        const { email, password } = this.state;
 
-        // Create user object
-        const newUser = {
-            name,
+        const user = {
             email,
             password,
-        };
+        }
 
-        // Attempt to register
-        this.props.register(newUser);
-
+        // Attempt login
+        this.props.login(user);
     }
 
     render() {
         return(
             <div>
                 <NavLink onClick={this.toggle} href="#">
-                    Register
+                    Sign in
                 </NavLink>
                 <Modal show={this.state.modal} onHide={this.toggle}>
                     <Modal.Header toggle={this.toggle} closeButton>
-                        Register
+                        Sign in
                     </Modal.Header>
                     <Modal.Body>
                         { this.state.msg ? (<Alert variant="danger">{ this.state.msg }</Alert>) : null }
                         <Form onSubmit={this.onSubmit}>
                             <Form.Group>
-                                <Form.Label for="name">Name</Form.Label>
-                                <Form.Control 
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    placeholder="Name"
-                                    className="mb-3"
-                                    onChange={this.onChange}
-                                />
                                 <Form.Label for="email">Email</Form.Label>
                                 <Form.Control 
                                     type="email"
@@ -117,7 +104,7 @@ class RegisterModal extends Component {
                                     onChange={this.onChange}
                                 />
                                 <Button variant="dark" style={{ marginTop: '2rem' }} type="submit" block>
-                                    Register
+                                    Sign in
                                 </Button>
                             </Form.Group>
                         </Form>
@@ -133,4 +120,4 @@ const mapStateToProps = (state) => ({
     error: state.error,
 });
 
-export default connect(mapStateToProps, { register, clearErrors })(RegisterModal);
+export default connect(mapStateToProps, { login, clearErrors })(SignInModal);

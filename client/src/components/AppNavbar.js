@@ -3,9 +3,9 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import RegisterModal from './auth/RegisterModal';
-import LoginModal from './auth/LoginModal';
-import Logout from './auth/Logout';
+import SignUpModal from './auth/SignUpModal';
+import SignInModal from './auth/SignInModal';
+import SignOut from './auth/SignOut';
 
 class AppNavbar extends Component {
     state = {
@@ -30,11 +30,11 @@ class AppNavbar extends Component {
             <Fragment>
                 <Nav.Item>
                     <span className="navbar-text mr-3">
-                        <strong>{ user ?  `Welcome ${user.name}` : '' }</strong>
+                        <strong>{ user ?  `${user.name}` : '' }</strong>
                     </span>
                 </Nav.Item>
                 <Nav.Item>
-                    <Logout />
+                    <SignOut />
                 </Nav.Item>
             </Fragment>
         );
@@ -42,10 +42,10 @@ class AppNavbar extends Component {
         const guestLinks = (
             <Fragment>
                 <Nav.Item>
-                    <RegisterModal />
+                    <SignUpModal />
                 </Nav.Item>
                 <Nav.Item>
-                    <LoginModal />
+                    <SignInModal />
                 </Nav.Item>
             </Fragment>
         )
