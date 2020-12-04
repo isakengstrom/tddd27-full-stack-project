@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { NavLink } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -13,9 +13,9 @@ export class SignOut extends Component {
     render() {
         return (
             <Fragment>
-                <NavLink onClick={this.props.logout} href="#">
+                <Button onClick={this.props.logout} variant="outline-light" href="#">
                     Sign out
-                </NavLink>
+                </Button>
             </Fragment>
         )
 

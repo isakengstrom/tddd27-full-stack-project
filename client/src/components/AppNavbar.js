@@ -54,7 +54,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar bg="dark" variant="dark" expand="sm">
                     <Container>
-                        <Navbar.Brand href="/">Coalender</Navbar.Brand>
+                        <Navbar.Brand href="/">Coalendar</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">

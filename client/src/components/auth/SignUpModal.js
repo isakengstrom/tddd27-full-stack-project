@@ -78,9 +78,9 @@ class SignUpModal extends Component {
     render() {
         return(
             <div>
-                <NavLink onClick={this.toggle} href="#">
+                <Button className="mr-2" onClick={this.toggle} variant="outline-light" href="#">
                     Sign up
-                </NavLink>
+                </Button>
                 <Modal show={this.state.modal} onHide={this.toggle}>
                     <Modal.Header toggle={this.toggle} closeButton>
                         Sign up

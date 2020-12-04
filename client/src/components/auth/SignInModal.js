@@ -74,9 +74,9 @@ class SignInModal extends Component {
     render() {
         return(
             <div>
-                <NavLink onClick={this.toggle} href="#">
+                <Button onClick={this.toggle} variant="outline-light" href="#">
                     Sign in
-                </NavLink>
+                </Button>
                 <Modal show={this.state.modal} onHide={this.toggle}>
                     <Modal.Header toggle={this.toggle} closeButton>
                         Sign in
