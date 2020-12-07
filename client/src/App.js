@@ -7,7 +7,7 @@ import AppNavbar from './components/AppNavbar';
 import AppFooter from './components/AppFooter';
 import GoalList from './components/GoalList';
 import ItemModal from './components/ItemModal';
-import Calendar from './components/calendar/Calendar';
+import Calendar from './components/calendar/Calendar.js';
 import store from './store';
 import { loadUser } from './actions/authActions';
 
