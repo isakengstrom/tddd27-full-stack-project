@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { Helmet } from 'react-helmet';
 
+import AppHelmet from './components/AppHelmet';
 import AppNavbar from './components/AppNavbar';
 import AppFooter from './components/AppFooter';
 import GoalList from './components/GoalList';
@@ -17,15 +18,12 @@ import './App.css';
 class App extends Component {
 	componentDidMount() {
 		store.dispatch(loadUser());
-		
 	}
 	
 	render(){
 		return (
 			<Provider store={store}>
-				<Helmet>
-					<title>Coalendar</title>
-				</Helmet>
+				<AppHelmet />
 				<div className="App">
 					<AppNavbar />
 					<Container style={{ marginTop: '2rem'}}>
