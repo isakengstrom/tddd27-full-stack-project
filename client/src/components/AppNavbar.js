@@ -54,13 +54,22 @@ class AppNavbar extends Component {
       <div>
         <Navbar bg="dark" variant="dark" expand="sm">
           <Container>
-            <Navbar.Brand href="/">Coalendar</Navbar.Brand>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-                  {isAuthenticated ? authLinks : guestLinks }
-                </Nav>
-              </Navbar.Collapse>
+            <Navbar.Brand href="/">
+              <img
+                alt=""
+                src="/logo_b_g.png"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{' '}
+              Coalendar
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                {isAuthenticated ? authLinks : guestLinks }
+              </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       </div>
