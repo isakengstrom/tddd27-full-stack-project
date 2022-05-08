@@ -48,7 +48,7 @@ class ItemModal extends Component {
                     Add Goal
                     </Button>
                     :
-                    <h4 className="mb-3 ml-4">Log in to manage goals</h4>
+                    <h4 className="mb-3 ml-4">Sign in to manage goals</h4>
                 }
                 
                 <Modal show={this.state.modal} onHide={this.toggle}>
