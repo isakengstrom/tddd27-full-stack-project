@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 //import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 
-import { login } from '../../actions/authActions';
+import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
-class LoginModal extends Component {
+class SignUpModal extends Component {
     state = {
         modal: false,
+        name: '',
         email: '',
         password: '',
         msg: null,
@@ -18,7 +19,7 @@ class LoginModal extends Component {
     static propTypes = {
         isAuthenticated: PropTypes.bool,
         error: PropTypes.object.isRequired,
-        login: PropTypes.func.isRequired,
+        register: PropTypes.func.isRequired,
         clearErrors: PropTypes.func.isRequired,
     };
 
@@ -28,7 +29,7 @@ class LoginModal extends Component {
 
         if(error !== prevProps.error) {
             // Check for register error
-            if(error.id === 'LOGIN_FAIL') {
+            if(error.id === 'REGISTER_FAIL') {
                 this.setState({ msg: error.msg.msg });
             }
             else {
@@ -60,31 +61,43 @@ class LoginModal extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        const { email, password } = this.state;
+        const { name, email, password } = this.state;
 
-        const user = {
+        // Create user object
+        const newUser = {
+            name,
             email,
             password,
-        }
+        };
 
-        // Attempt login
-        this.props.login(user);
+        // Attempt to register
+        this.props.register(newUser);
+
     }
 
     render() {
         return(
             <div>
-                <NavLink onClick={this.toggle} href="#">
-                    Login
-                </NavLink>
+                <Button className="mr-2" onClick={this.toggle} variant="outline-light" href="#">
+                    Sign up
+                </Button>
                 <Modal show={this.state.modal} onHide={this.toggle}>
                     <Modal.Header toggle={this.toggle} closeButton>
-                        Login
+                        Sign up
                     </Modal.Header>
                     <Modal.Body>
                         { this.state.msg ? (<Alert variant="danger">{ this.state.msg }</Alert>) : null }
                         <Form onSubmit={this.onSubmit}>
                             <Form.Group>
+                                <Form.Label for="name">Name</Form.Label>
+                                <Form.Control 
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    placeholder="Name"
+                                    className="mb-3"
+                                    onChange={this.onChange}
+                                />
                                 <Form.Label for="email">Email</Form.Label>
                                 <Form.Control 
                                     type="email"
@@ -104,7 +117,7 @@ class LoginModal extends Component {
                                     onChange={this.onChange}
                                 />
                                 <Button variant="dark" style={{ marginTop: '2rem' }} type="submit" block>
-                                    Login
+                                    Sign up
                                 </Button>
                             </Form.Group>
                         </Form>
@@ -120,4 +133,4 @@ const mapStateToProps = (state) => ({
     error: state.error,
 });
 
-export default connect(mapStateToProps, { login, clearErrors })(LoginModal);
+export default connect(mapStateToProps, { register, clearErrors })(SignUpModal);
