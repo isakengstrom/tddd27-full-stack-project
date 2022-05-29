@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import FullCalendar from '@fullcalendar/react' // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 
 import "./styles.css";
 
 
 class Calendar extends Component {
 
-  createCal = () => {
+  createCalendar = () => {
         
     const value = moment();
     const startDay = value.clone().startOf('month').startOf('isoWeek');
@@ -37,7 +39,7 @@ class Calendar extends Component {
 
   render() {
     return(
-			this.createCal()
+        this.createCalendar()
     );
   }
 }
