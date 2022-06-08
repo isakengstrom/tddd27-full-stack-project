@@ -13,20 +13,20 @@ import store from './store';
 import { loadUser } from './actions/authActions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
 	componentDidMount() {
 		store.dispatch(loadUser());
 	}
-	
+
 	render(){
 		return (
 			<Provider store={store}>
 				<AppHelmet />
 				<div className="App">
 					<AppNavbar />
-					<Container style={{ marginTop: '2rem'}}>
+					<Container fluid>
 						<Row>
 							<Col>
 								<Calendar />

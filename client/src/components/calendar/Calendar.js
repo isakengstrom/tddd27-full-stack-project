@@ -1,47 +1,44 @@
-import React, { Component } from 'react';
-import moment from 'moment';
-import FullCalendar from '@fullcalendar/react' // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import React, { useState } from 'react';
 
-import "./styles.css";
+import "./styles.scss";
+import CalendarSidebar from "./CalendarSidebar";
+import {Col, Row} from "react-bootstrap";
+import IsoWeekCalendar from "./IsoWeekCalendar";
 
 
-class Calendar extends Component {
+const Calendar = (props) => {
+    const [isToggled, setIsToggled] = useState(false);
 
-  createCalendar = () => {
-        
-    const value = moment();
-    const startDay = value.clone().startOf('month').startOf('isoWeek');
-    const endDay = startDay.clone().add(5, 'week').endOf('isoWeek');
-    const day = startDay.clone().subtract(1, 'day');
-    const calendar = [];
-
-    while(day.isBefore(endDay, 'day')) {
-      calendar.push(
-        Array(7)
-          .fill(0)
-          .map(() => day.add(1, 'day').clone())
-      );
+    const handleSidebarToggle = () => {
+        console.log('regging sidebar toggle v2')
+        setIsToggled(wasToggled => !wasToggled);
     }
 
     return(
-      <div className="calendar">
-        {calendar.map((week) => (
-          <div>
-            {week.map((day) => (
-              <div className="day">{day.format('D').toString()}</div>
-            ))}
-          </div>
-        ))}
-      </div>
+        <Row>
+            <Col className="px-0">
+                {isToggled && (
+                    <CalendarSidebar />
+                )}
+            </Col>
+            <Col>
+                <Row>
+                    <div id="content">
+                        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                            <div className="container-fluid">
+                                <button onClick={handleSidebarToggle} type="button" id="sidebarCollapse" className="btn btn-info" >
+                                    <span>Toggle Sidebar</span>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </Row>
+                <Row>
+                    <IsoWeekCalendar/>
+                </Row>
+            </Col>
+        </Row>
     );
-  }
-
-  render() {
-    return(
-        this.createCalendar()
-    );
-  }
 }
 
 export default Calendar;

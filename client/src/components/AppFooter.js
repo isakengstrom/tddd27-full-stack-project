@@ -7,7 +7,7 @@ class AppFooter extends Component {
 	render(){
 		return (
             <FooterContainer>
-                <footer className="mt-5">
+                <footer className="mt-0">
                     <div className="footer-middle">
                         <Container>
                             <Row>
@@ -26,11 +26,11 @@ class AppFooter extends Component {
                                     </ul>
                                 </Col> 
                             </Row>
-                            <div className="footer-bottom">
+                            <Row className="footer-bottom">
                                 <p className="text-xs-center">
                                     &copy; {new Date().getFullYear()} Isak Engström  
                                 </p>
-                            </div>
+                            </Row>
                         </Container>
                     </div>
                 </footer>
@@ -44,7 +44,7 @@ export default AppFooter;
 const FooterContainer = styled.footer`
 .footer-middle {
     background: var(--mainDark);
-    padding-top: 3rem;
+    padding-top: 2rem;
     color: var(--mainWhite);
 }
 
@@ -58,7 +58,7 @@ a:hover {
 }
 
 .footer-bottom {
-    padding-top: 1rem;
+    padding-top: 0;
     padding-bottom: 2rem;
 }
 
